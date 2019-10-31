@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "Bleary"
+version = "0.1.0"
+description = ""
+authors = ["Ben Leighton <Ben.Leighton@csiro.au>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+psycopg2 = "^2.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+black = {version = "^18.3-alpha.0", allows-prereleases = true}
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

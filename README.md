@@ -6,4 +6,14 @@ This is a work in progress to provide deep but approximate indexing to the indiv
 
 `docker-compose up -d` brings up a H3 enabled postgis database.
 
-`loader.sh` to load  
+`h3bee/loader.py` to download and load some data
+
+pgAdmin4 (at the moment) to do queries and find stuff e.g
+
+## To visualise the "hive" i.e hexagonal h3 boundaries of some approximately indexed data
+
+`select *, h3_to_geo_boundary_geometry(h3_l11, false) as h3_indexes_found from data_table limit 3000`
+
+## To deep find approximately indexed shapes across datasets at a location (and visualise the "hive")  
+
+`select *, h3_to_geo_boundary_geometry(h3_l11, false)  from data_table where h3_l11 = h3_geo_to_h3(POINT('144.285527, -36.752529'), 5)`
